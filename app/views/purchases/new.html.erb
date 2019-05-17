@@ -1,0 +1,4 @@
+<h5>Purchase this item!</h5>
+<%= simple_form_for([@item, @purchase]) do |f| %>
+  <%= f.submit "Confirm purchase", class: "btn btn-primary" %>
+<% end %>

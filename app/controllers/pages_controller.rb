@@ -9,10 +9,6 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
-  def purchases
-    @user = current_user
-  end
-
   def posts
     @user = current_user
   end
