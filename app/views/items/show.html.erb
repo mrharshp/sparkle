@@ -1,15 +1,26 @@
-<ul>
-  <li>Seller: <%= @item.user.name %></li>
-  <li><%= @item.name %></li>
-  <li>Description: <%= @item.description %></li>
-  <li>Price: <%= @item.price %> pounds</li>
-  <%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %>
-</ul>
-<h5>Checkout <%= link_to @item.user.name, user_reviews_path(@item.user) %>'s Reviews</h5>
-<%= link_to "Back", items_path, class: "btn btn-primary" %>
-<%= link_to "Edit", edit_item_path, class: "btn btn-primary" %>
-<%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-primary" %>
-<%= link_to "Buy", new_item_purchase_path(@item, @user), class: "btn btn-primary" %>
+<div class="container">
+  <div class="card mb-3" style="max-width: 1024px">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <%= cl_image_tag @item.photo, class: "card-img-top", style:"width: 396px", crop: :fit %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+      <h5 class="card-title" style="font-size: 42px; font-weight: bolder;"><%= @item.name %></h5>
+      <p class="card-text" style="font-size: 26px"><%= @item.description %></p>
 
+      <h2 class="group-item">£ <%= @item.price %></h2>
+      <br>
+      <%= link_to "Buy", new_item_purchase_path(@item, @user), class: "btn btn-primary" %>
+      <br>
+      <br>
+      <%= link_to "Back", items_path, class: "btn btn-plain" %>
+      <%= link_to "Edit", edit_item_path, class: "btn btn-plain" %>
+      <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-plain" %>
 
-
+          <p class="card-text"><small class="text-muted">Sold by <%= link_to @item.user.name, user_reviews_path(@item.user) %></small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
