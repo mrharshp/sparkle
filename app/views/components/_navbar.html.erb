@@ -1,24 +1,27 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <h4><%= link_to 'Sparkle', root_path, class: "navbar-brand" %></h4>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="padding-top: 20px;">
+  <%= link_to 'Sparkle', root_path, class: "btn btn-plain", style: "margin-bottom: 14px; font-size: 26px; font-weight: bold; color: #5B2A86;" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <form action="/items" method="get">
-       <div class="d-flex">
+       <div class="d-flex" style="">
         <input type="text" placeholder="Search" name="search" class="input-group-text mx-2">
         <input type="submit" class="btn btn-outline-secondary mx-2" value="Search">
        </div>
       </form>
-      <li class="nav-item">
-        <%= link_to "Post your Jewlery!", new_item_path , class: "nav-link" %>
+      <li>
+        <%= link_to "Sell an Item!", new_item_path, class: "btn btn-success", style: "margin-left: 20px" %>
       </li>
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.photo %>
+            <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <p class="avatar nopic", id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" > <%= current_user.name.first %> </p>
+            <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Profile", my_profile_path, class: "dropdown-item" %>
             <%= link_to "My Purchases", my_purchases_path, class: "dropdown-item" %>
