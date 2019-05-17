@@ -3,7 +3,7 @@
   <%= cl_image_tag(item.photo, crop: :fit) %>
   <div class="card-product-infos">
     <h2><%= link_to item.name, item_path(item) %></h2>
-    <h2><%= item.price %></h2>
+    <h2><%= item.price %> pounds</h2>
   </div>
 </div>
   <% end %>
