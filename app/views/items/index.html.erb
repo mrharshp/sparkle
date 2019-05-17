@@ -2,23 +2,9 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-2 col-md-8 col-lg-12">
-<<<<<<< HEAD
       <div class="grid">
       <%= render 'itemcard' %>
       </div>
-=======
-      <ul>
-        <% @items.each do |item| %>
-          <li>
-            <%= link_to item_path(item) do %>
-                  <h2><%= item.name %></h2>
-            <% end %>
-                    <h2><%= item.price %> pounds</h2>
-          </li>
-        <% end %>
-      </ul>
-      <%= link_to "Add a new jewellery", new_item_path %>
->>>>>>> fc565026579f7701557f4704dafdb0e6e04d9d2b
     </div>
   </div>
 </div>
