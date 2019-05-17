@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  get 'purchases/buy'
   devise_for :users
   root to: 'pages#home'
-  resources :items
+  resources :items do
+    member do
+      get 'buy', to: 'purchases#buy', as: :buy
+    end
+  end
   get 'my_profile', to: 'pages#profile', as: :my_profile
   get 'my_purchases', to: 'pages#purchases', as: :my_purchases
   get 'my_posts', to: 'pages#posts', as: :my_posts
