@@ -10,3 +10,36 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nopic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 22px;
+  margin-left: 20px;
+  background-color: $info;
+  height: 40px;
+}
+
+.nopic:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 22px;
+  margin-left: 20px;
+  background-color: $success;
+  height: 40px;
+  color: white
+}
+
+.sparkle {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.sparkle:hover {
+  font-weight: bold;
+  font-size: 22px;
+}
