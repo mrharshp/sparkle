@@ -1,1 +1,15 @@
-<h1>Hello <%= @user.name %></h1>
+<div class="container">
+  <h1>Hello <%= @user.name %></h1>
+<%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
+<%= simple_form_for(@user) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit "Update My Profile", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "My Purchase History", my_purchases_path, class: "btn btn-primary" %>
+<%= link_to "My Postings", my_posts_path, class: "btn btn-primary" %>
+//<%= link_to "My Chat History" %>
+</div>
