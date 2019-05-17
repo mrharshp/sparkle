@@ -1,8 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
-# Cloudinary
+# Protect secret API keys
 gem 'dotenv-rails', groups: [:development, :test]
+
+#Cloudinary
+gem 'cloudinary', '~> 1.9.1'
+
+#CarrierWave
+gem 'carrierwave', '~> 1.2'
 
 
 gem 'bootsnap', require: false

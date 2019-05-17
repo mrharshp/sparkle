@@ -6,4 +6,5 @@ class User < ApplicationRecord
   validates :name, presence: :true
   has_many :items
   has_many :purchases
+  mount_uploader :photo, PhotoUploader
 end
