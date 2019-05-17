@@ -2,11 +2,16 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-2 col-md-8 col-lg-12">
-      <% @items.each do |item| %>
-        <%= link_to item_path(item) do %>
-              <h2><%= item.price %></h2>
+      <ul>
+        <% @items.each do |item| %>
+          <li>
+            <%= link_to item_path(item) do %>
+                  <h2><%= item.name %></h2>
+            <% end %>
+                    <h2><%= item.price %></h2>
+          </li>
         <% end %>
-      <% end %>
+      </ul>
       <%= link_to "Add a new jewellery", new_item_path %>
     </div>
   </div>
