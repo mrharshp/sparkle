@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'purchases/buy'
   devise_for :users
   root to: 'pages#home'
   resources :items do
