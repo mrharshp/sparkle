@@ -1,27 +1,31 @@
 class ReviewsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
 
   def index
-    @reviews = Review.all
+    @user = User.find(params[:user_id])
+    @reviews = Review.where(user: @user)
   end
 
-  def show
-    @review = Review.find(params[:id])
-    @review = Review.new
-
   def new
+    @user = User.find(params[:user_id])
     @review = Review.new
   end
 
   def create
+    @user = User.find(params[:user_id])
     @review = Review.new(review_params)
-    @review.save
-    render 'items'
+    @review.user = current_user
+    if @review.save
+      redirect_to user_reviews_path(@user)
+    else
+      render :new
+    end
   end
 
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    render 'items'
+    redirect_to user_reviews_path(@user)
   end
 
   private
@@ -29,7 +33,4 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:title, :content, :user_id)
   end
-
-=======
->>>>>>> 3cdce23ecc1c93d1e50328a82102b9673c4f1b11
 end
