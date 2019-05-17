@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'pages#home'
+  devise_for :users
+  resources :users do
+    resources :reviews, only: [:new, :create, :index, :show, :destroy]
+  end
   resources :items
   get 'my_profile', to: 'pages#profile', as: :my_profile
   get 'my_purchases', to: 'pages#purchases', as: :my_purchases
