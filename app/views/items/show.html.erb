@@ -9,6 +9,7 @@
 <%= link_to "Back", items_path, class: "btn btn-primary" %>
 <%= link_to "Edit", edit_item_path, class: "btn btn-primary" %>
 <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-primary" %>
+<%= link_to "Buy", new_item_purchase_path(@item, @user), class: "btn btn-primary" %>
 
 
 
