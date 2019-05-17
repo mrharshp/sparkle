@@ -4,5 +4,5 @@ class Item < ApplicationRecord
   validates :price, numericality: { only_integer: true }, presence: true
   validates :photo, presence: true
   belongs_to :user
-  # mount_uploader :photo, PhotoUploader
+  mount_uploader :photo, PhotoUploader
 end
