@@ -1,11 +1,14 @@
 <ul>
+  <li>Seller: <%= @item.user.name %></li>
   <li><%= @item.name %></li>
-  <li><%= @item.description %></li>
-  <li><%= @item.price %></li>
-  <li><%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %></li>
+  <li>Description: <%= @item.description %></li>
+  <li>Price: <%= @item.price %> pounds</li>
+  <%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %>
 </ul>
+<h5>Checkout <%= link_to @item.user.name, user_reviews_path(@item.user) %>'s Reviews</h5>
 <%= link_to "Back", items_path, class: "btn btn-primary" %>
 <%= link_to "Edit", edit_item_path, class: "btn btn-primary" %>
 <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-primary" %>
+
 
 

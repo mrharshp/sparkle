@@ -1,0 +1,10 @@
+<h5>Checkout <%= @user.name %>'s Reviews!</h5>
+<ul>
+  <% @reviews.each do |review| %>
+    <li>
+      <%= review.title %>
+      <%= review.content %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'Write a review!', new_user_review_path(@user) %>
