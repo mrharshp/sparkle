@@ -30,4 +30,6 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:title, :content, :user_id)
   end
 
+=======
+>>>>>>> 3cdce23ecc1c93d1e50328a82102b9673c4f1b11
 end

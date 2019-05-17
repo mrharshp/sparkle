@@ -1,0 +1,11 @@
+<%= @items.each do |item| %>
+  <%= item.name %>
+  <%= item.description %>
+  <%= item.price %>
+  <%= item.photo %>
+  <%= link_to "Back", items_path, class: "btn btn-primary" %>
+  <%= link_to "Edit", edit_item_path, class: "btn btn-primary" %>
+  <%= link_to "Delete", item_path(item), method: :delete %>
+<% end %>
+
+

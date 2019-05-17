@@ -1,0 +1,13 @@
+<h2 class="container">All jewellery:</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2 col-md-8 col-lg-12">
+      <% @items.each do |item| %>
+        <%= link_to item_path(item) do %>
+              <h2><%= item.price %></h2>
+        <% end %>
+      <% end %>
+      <%= link_to "Add a new jewellery", new_item_path %>
+    </div>
+  </div>
+</div>
