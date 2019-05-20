@@ -1,6 +1,9 @@
-<h5>Write a review for <%= @user.name %></h5>
-<%= simple_form_for([@user, @review]) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.submit "Add Review", class: "btn btn-primary" %>
-<% end %>
+<br>
+<div class="form container">
+  <h3 class="pb-2">Write a review for <%= @user.name %></h3>
+  <%= simple_form_for([@user, @review]) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%= f.submit "Add Review", class: "btn btn-primary" %>
+  <% end %>
+</div>

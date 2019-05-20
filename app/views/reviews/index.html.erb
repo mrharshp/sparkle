@@ -1,10 +1,17 @@
-<h5>Checkout <%= @user.name %>'s Reviews!</h5>
-<ul>
-  <% @reviews.each do |review| %>
-    <li>
-      <%= review.title %>
-      <%= review.content %>
-    </li>
-  <% end %>
-</ul>
-<%= link_to 'Write a review!', new_user_review_path(@user) %>
+<br>
+<div class="container">
+  <h3>Check out <%= @user.name %>'s Reviews!</h3>
+  <div class="d-flex flex-wrap">
+    <% @reviews.each do |review| %>
+      <div class="card mr-3 my-3" style="width: 18rem;">
+        <div class="card-body">
+           <strong><%= review.title %></strong>
+           <br>
+           <%= review.content %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to 'Write a review!', new_user_review_path(@user), class:"btn btn-primary my-3" %>
+</div>
+

@@ -1,13 +1,14 @@
+<br>
 <div class="container card-purchase border">
-  <div class="card-purchase-image">
+  <div class="card-purchase-image py-5 rounded-lg">
     <%= cl_image_tag @item.photo, width: 396 %>
   </div>
   <div class="container card-purchase-info my-2">
     <h1>Purchase this <%= @item.name %>!</h1>
-    <p><%= @item.description %></p>
-    <h2>£ <%= @item.price %></h2>
+    <h3>Seller Description: <%= @item.description %></h3>
+    <h3>Listed Price: £ <%= @item.price %></h3>
     <div class="card-purchase-payment">
-      <h3>About payment</h3>
+      <p>Insert Stripe</p>
     </div>
   </div>
   <div id="card-purchase-button">
