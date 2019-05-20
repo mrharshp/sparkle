@@ -24,7 +24,7 @@
             <% else %>
               <p class="avatar nopic", id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" > <%= current_user.name.first %> </p>
             <% end %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="font-size: 14px">
             <%= link_to "My Profile", my_profile_path, class: "dropdown-item" %>
             <%= link_to "My Purchases", my_purchases_path, class: "dropdown-item" %>
             <%= link_to "My Posts", my_posts_path, class: "dropdown-item"  %>
