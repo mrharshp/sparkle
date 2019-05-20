@@ -12,4 +12,5 @@ class PagesController < ApplicationController
   def posts
     @user = current_user
   end
+
 end

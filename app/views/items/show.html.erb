@@ -2,7 +2,7 @@
   <div class="card mb-3" style="max-width: 1024px">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <%= cl_image_tag @item.photo, class: "card-img-top", style:"width: 396px", crop: :fill %>
+        <%= cl_image_tag @item.photo, class: "card-img-top", width: 396 %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -15,8 +15,12 @@
           <br>
           <br>
           <%= link_to "Back", items_path, class: "btn btn-plain" %>
-          <%= link_to "Edit", edit_item_path, class: "btn btn-plain" %>
-          <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-plain" %>
+          <% if policy(@item).edit? %>
+            <%= link_to "Edit", edit_item_path, class: "btn btn-plain" %>
+          <% end %>
+          <% if policy(@item).destroy? %>
+            <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-plain" %>
+          <% end %>
           <p class="card-text"><small class="text-muted">Sold by <%= link_to @item.user.name, user_reviews_path(@item.user) %></small></p>
         </div>
       </div>
