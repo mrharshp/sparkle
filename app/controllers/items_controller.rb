@@ -3,10 +3,11 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @items = policy_scope(Item)
     if params[:search]
       @items = Item.where("name LIKE '%#{params[:search]}%'")
     else
-      @items = Item.all
+      @items = policy_scope(Item)
     end
   end
 
@@ -15,10 +16,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    authorize @item
   end
 
   def create
     @item = Item.new(item_params)
+    authorize @item
     @item.user = current_user
     if @item.save
       redirect_to item_path(@item)
@@ -48,9 +51,11 @@ class ItemsController < ApplicationController
 
   def find_item
     @item = Item.find(params[:id])
+    authorize @item
   end
 
   def item_params
     params.require(:item).permit(:name, :description, :price, :photo)
+    authorize @item
   end
 end

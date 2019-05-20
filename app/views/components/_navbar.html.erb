@@ -13,7 +13,9 @@
        </div>
       </form>
       <li>
-        <%= link_to "Sell an Item!", new_item_path, class: "btn btn-success", style: "margin-left: 20px" %>
+        <% if policy(Item).create? %>
+          <%= link_to "Sell an Item!", new_item_path, class: "btn btn-success", style: "margin-left: 20px" %>
+        <% end %>
       </li>
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
