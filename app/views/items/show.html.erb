@@ -1,27 +1,27 @@
 <div class="container">
-  <div class="card mb-3" style="max-width: 1024px">
-    <div class="row no-gutters">
+  <div class="card mb-3 shadow-sm p-3 mx-auto mb-5 bg-white rounded" style="max-width: 800px;">
+    <div class="row no-gutters d-flex justify-content-center align-items-center flex-wrap">
       <div class="col-md-4">
-        <%= cl_image_tag @item.photo, class: "card-img-top", width: 396 %>
+        <%= cl_image_tag @item.photo, class: "card-img-top rounded-lg border border-info", width: 396 %>
+        <%= link_to "Buy this Item!", new_item_purchase_path(@item, @user), class: "btn btn-primary my-2 btn-block" %>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-5 d-flex flex-column">
         <div class="card-body">
-          <h5 class="card-title" style="font-size: 42px; font-weight: bolder;"><%= @item.name %></h5>
-          <p class="card-text" style="font-size: 26px"><%= @item.description %></p>
-
-          <h2 class="group-item">£ <%= @item.price %></h2>
-          <br>
-          <%= link_to "Buy", new_item_purchase_path(@item, @user), class: "btn btn-primary" %>
-          <br>
-          <br>
-          <%= link_to "Back", items_path, class: "btn btn-plain" %>
+          <h3 class="card-title" style="font-weight: bolder;"><%= @item.name %></h3>
+          <h4 class="card-text">Seller Description: <%= @item.description %></h4>
+          <h4 class="group-item">Listed Price: £ <%= @item.price %></h4>
+          <h5 class="card-text"><small class="text-muted">Sold by <%= link_to @item.user.name, user_reviews_path(@item.user) %> --> Checkout <%= @item.user.name %>'s Reviews!</small></h5>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="d-flex flex-column">
           <% if policy(@item).edit? %>
-            <%= link_to "Edit", edit_item_path, class: "btn btn-plain" %>
+            <%= link_to "Edit", edit_item_path, class: "btn btn-info m-3" %>
           <% end %>
           <% if policy(@item).destroy? %>
-            <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-plain" %>
+            <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-info m-3" %>
           <% end %>
-          <p class="card-text"><small class="text-muted">Sold by <%= link_to @item.user.name, user_reviews_path(@item.user) %></small></p>
+          <%= link_to "Back to Shopping", items_path, class: "btn btn-info m-3" %>
         </div>
       </div>
     </div>
