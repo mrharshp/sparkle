@@ -1,2 +1,19 @@
-<h3>Hi <%= @user.name %>, check your purchases! </h3>
-<h6>You have <%= @purchases.count %> purchases</h6>
+<div class="container">
+  <h3>Hi <%= @user.name %>, check your purchases! </h3>
+  <h6>You have <%= @purchases.count %> purchases:</h6>
+</div>
+<% @purchases.each do |purchase| %>
+  <div class="container card-my-purchases">
+    <div class="card-my-purchases-image" style="background-image: url('<%= cl_image_path purchase.item.photo %>')">
+
+    </div>
+    <div class="card-my-purchases-infos m-5">
+      <h1><%= purchase.item.name %></h1>
+      <h2>£ <%= purchase.item.price %></h2>
+    </div>
+    <div class="card-my-purchases-status m-5">
+      <p>Date of purchase: <%= purchase.item.created_at.strftime("%d/%m/%Y at %I:%M%p") %></p>
+      <p>Your order is in progress.</p>
+    </div>
+  </div>
+<% end %>

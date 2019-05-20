@@ -4,6 +4,7 @@ class PurchasesController < ApplicationController
   def index
     @user = current_user
     @purchases = Purchase.where(user: @user)
+    @items = Item.where(user: @user)
   end
 
   def show

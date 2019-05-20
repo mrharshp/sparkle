@@ -4,9 +4,9 @@ class ItemsController < ApplicationController
 
   def index
     if params[:search]
-      @items = Item.where("name LIKE '%#{params[:search]}%'")
+      @items = Item.where("name LIKE '%#{params[:search]}%'").select { |item| item.purchase.nil? }
     else
-      @items = Item.all
+      @items = Item.all.select { |item| item.purchase.nil? }
     end
   end
 
