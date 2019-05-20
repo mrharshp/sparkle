@@ -11,6 +11,6 @@ class PagesController < ApplicationController
 
   def posts
     @user = current_user
+    @items = Item.where(user: @user)
   end
-
 end
