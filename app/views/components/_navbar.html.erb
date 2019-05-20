@@ -17,7 +17,7 @@
       </li>
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
-          <% if current_user.photo %>
+          <% if current_user.photo.url %>
             <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <p class="avatar nopic", id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" > <%= current_user.name.first %> </p>
