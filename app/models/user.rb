@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :items
   has_many :purchases
   has_many :reviews
-  # mount_uploader :photo, PhotoUploader
+  mount_uploader :photo, PhotoUploader
 end
