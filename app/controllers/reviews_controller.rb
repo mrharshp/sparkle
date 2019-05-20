@@ -14,11 +14,15 @@ class ReviewsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @review = Review.new(review_params)
-    @review.user = current_user
-    if @review.save
-      redirect_to user_reviews_path(@user)
+    @review.user = @user
+    if @review.user != current_user
+      if @review.save
+        redirect_to user_reviews_path(@user)
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to user_reviews_path(@user)
     end
   end
 
