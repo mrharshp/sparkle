@@ -2,22 +2,21 @@
   <div class="card mb-3" style="max-width: 1024px">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <%= cl_image_tag @item.photo, class: "card-img-top", style:"width: 396px", crop: :fit %>
+        <%= cl_image_tag @item.photo, class: "card-img-top", style:"width: 396px", crop: :fill %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
-      <h5 class="card-title" style="font-size: 42px; font-weight: bolder;"><%= @item.name %></h5>
-      <p class="card-text" style="font-size: 26px"><%= @item.description %></p>
+          <h5 class="card-title" style="font-size: 42px; font-weight: bolder;"><%= @item.name %></h5>
+          <p class="card-text" style="font-size: 26px"><%= @item.description %></p>
 
-      <h2 class="group-item">£ <%= @item.price %></h2>
-      <br>
-      <%= link_to "Buy", new_item_purchase_path(@item, @user), class: "btn btn-primary" %>
-      <br>
-      <br>
-      <%= link_to "Back", items_path, class: "btn btn-plain" %>
-      <%= link_to "Edit", edit_item_path, class: "btn btn-plain" %>
-      <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-plain" %>
-
+          <h2 class="group-item">£ <%= @item.price %></h2>
+          <br>
+          <%= link_to "Buy", new_item_purchase_path(@item, @user), class: "btn btn-primary" %>
+          <br>
+          <br>
+          <%= link_to "Back", items_path, class: "btn btn-plain" %>
+          <%= link_to "Edit", edit_item_path, class: "btn btn-plain" %>
+          <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-plain" %>
           <p class="card-text"><small class="text-muted">Sold by <%= link_to @item.user.name, user_reviews_path(@item.user) %></small></p>
         </div>
       </div>

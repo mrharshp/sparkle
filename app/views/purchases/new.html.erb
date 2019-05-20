@@ -1,4 +1,20 @@
-<h5>Purchase this item!</h5>
-<%= simple_form_for([@item, @purchase]) do |f| %>
-  <%= f.submit "Confirm purchase", class: "btn btn-primary" %>
-<% end %>
+<div class="container card-purchase border">
+  <div class="card-purchase-image">
+    <%= cl_image_tag @item.photo, width: 396 %>
+  </div>
+  <div class="container card-purchase-info my-2">
+    <h1>Purchase this <%= @item.name %>!</h1>
+    <p><%= @item.description %></p>
+    <h2>£ <%= @item.price %></h2>
+    <div class="card-purchase-payment">
+      <h3>About payment</h3>
+    </div>
+  </div>
+  <div id="card-purchase-button">
+    <%= simple_form_for([@item, @purchase]) do |f| %>
+    <%= f.submit "Confirm purchase", class: "card-purchase-button btn btn-primary"%>
+    <% end %>
+  </div>
+</div>
+
+
