@@ -5,19 +5,22 @@
   <div class="container profile">
     <div class="container profile" style="display: flex; align-items: center;">
     <%= cl_image_tag @user.photo, height: 300, width: 300, crop: :fit %>
+
+
       <div class="container" style="font-weight: normal; font-size: 16px;">
       <%= simple_form_for(@user) do |f| %>
         <%= f.input :name %>
         <%= f.input :email %>
+        <%= f.input :password%>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.submit "Update My Profile", class: "btn btn-warning" %>
       <% end %>
       </div>
     </div>
-  <br>
   <%= link_to "My Purchase History", my_purchases_path, class: "btn btn-success" %>
   <%= link_to "My Postings", my_posts_path, class: "btn btn-success" %>
+  <br>
 <!--   //<#%= link_to "My Chat History" %> -->
   </div>
 </div>
