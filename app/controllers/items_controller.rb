@@ -5,9 +5,9 @@ class ItemsController < ApplicationController
   def index
     @items = policy_scope(Item)
     if params[:search]
-      @items = Item.where("name LIKE '%#{params[:search]}%'")
+      @items = Item.where("name LIKE '%#{params[:search]}%'").select { |item| item.purchase.nil? }
     else
-      @items = policy_scope(Item)
+      @items = policy_scope(Item).select { |item| item.purchase.nil? }
     end
   end
 
