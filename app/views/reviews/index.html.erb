@@ -5,7 +5,8 @@
     <% @reviews.each do |review| %>
       <div class="card mr-3 my-3" style="width: 18rem;">
         <div class="card-body">
-           <%= review.title %>
+           <strong><%= review.title %></strong>
+           <br>
            <%= review.content %>
         </div>
       </div>
