@@ -4,6 +4,8 @@ class ReviewsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @reviews = Review.where(user: @user)
+     @sum = @user.reviews.map {|review| review.rating}.sum
+     @avg = (@sum.to_f / @user.reviews.length)
   end
 
   def new
