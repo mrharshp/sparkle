@@ -1,6 +1,9 @@
 .alert {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 1000;
+  position: absolute;
+  visibility: visible;
+  left: 8px;
+  top: 55px;
+  font-size: 14px;
+  color: black;
+  font-variant: petite-caps;
 }
