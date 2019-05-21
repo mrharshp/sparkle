@@ -1,0 +1,16 @@
+<br>
+<div class="container">
+  <h3>Hi <%= current_user.name %>, You have <%= @purchases.count %> items in your basket:  </h3>
+</div>
+<% @purchases.each do |purchase| %>
+  <div class="container card-posts">
+    <div class="card-posts-image" style="background-image: url('<%= cl_image_path purchase.item.photo %>')">
+    </div>
+    <div class="card-posts-infos">
+      <h1><%= link_to purchase.item.name, item_path(purchase.item) %></h1>
+      <h2>£ <%= purchase.item.price %></h2>
+          <%= link_to "Remove Item", purchase_path(purchase), method: :delete, class: "btn btn-info m-3" %>
+    </div>
+<% end %>
+</div>
+<%= link_to "Check out", my_purchases_path, class: "btn btn-info m-3" %>

@@ -6,8 +6,8 @@
     <%= f.input :photo %>
     <%= f.input :category, collection: ['Anklets', 'Earrings', 'Necklaces', 'Rings', 'Watches', 'Other'] %>
     <%= f.input :gender, collection: ['Female', 'Male', 'Unisex'] %>
-    <%= f.submit "Add Item", class: "btn btn-primary" %>
-    <%= link_to "Back", items_path, class: "btn btn-primary" %>
+    <%= f.submit "Add Item", class: "btn btn-primary", style: "width: 150px" %>
+    <%= link_to "Back", items_path, class: "btn btn-info" %>
   <% end %>
 </div>
 

@@ -4,6 +4,8 @@ class ReviewsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @reviews = Review.where(user: @user)
+     @sum = @user.reviews.map {|review| review.rating}.sum
+     @avg = (@sum.to_f / @user.reviews.length)
   end
 
   def new
@@ -19,9 +21,11 @@ class ReviewsController < ApplicationController
       if @review.save
         redirect_to user_reviews_path(@user)
       else
+        flash[:alert] = "Something went wrong :("
         render :new
       end
     else
+      flash[:alert] = "Stop reviewing yourself!"
       redirect_to user_reviews_path(@user)
     end
   end
@@ -35,6 +39,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :content, :user_id)
+    params.require(:review).permit(:title, :content, :user_id, :rating)
   end
 end
