@@ -1,35 +1,9 @@
-.card-posts {
-  overflow: hidden;
-  height: 210px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  margin: 20px auto;
-  width: 60%;
+.photo {
+  position: relative;
 }
 
-.card-posts-image {
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-  width: 300px;
-}
-
-.card-posts h1 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-.card-posts p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-}
-.card-posts .card-posts-infos {
-  padding: 16px;
-}
-
-.card-posts-status {
-  width: 150px;
+.button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
