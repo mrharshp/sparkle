@@ -1,21 +1,37 @@
 <br>
-<div class="container card-purchase border">
-  <div class="card-purchase-image py-5 rounded-lg">
-    <%= cl_image_tag @item.photo, width: 396 %>
-  </div>
-  <div class="container card-purchase-info my-2">
-    <h1>Purchase this <%= @item.name %>!</h1>
-    <h3>Seller Description: <%= @item.description %></h3>
-    <h3>Listed Price: £ <%= @item.price %></h3>
-    <div class="card-purchase-payment">
-      <p>Insert Stripe</p>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="card shadow-sm p-3 mx-auto mb-4 bg-white rounded-sm" style="max-width: 1000px;">
+    <div class="row no-gutters d-flex justify-content-center align-items-center flex-wrap">
+      <div class="col-md-4">
+        <%= cl_image_tag @item.photo, class: "card-img-top rounded-lg border border-info" %>
+        <%= simple_form_for([@item, @purchase]) do |f| %>
+          <%= f.submit "Confirm purchase", class: "btn btn-primary my-2 btn-block"%>
+        <% end %>
+        <%= link_to "Back to Shopping", items_path, class: "btn btn-info my-2 btn-block" %>
+      </div>
+      <div class="col-md-5 d-flex flex-column">
+        <div class="card-body">
+          <h3 class="card-title" style="font-weight: bolder;">Purchase this <%= @item.name %>!</h3>
+          <h4 class="card-text">Seller Description: <%= @item.description %></h4>
+          <h4 class="group-item">Listed Price: £ <%= @item.price %></h4>
+          <div class="">
+            <form class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" class="form-control">
+              <label for="card">Credit Card Number:</label>
+              <input type="text" class="form-control">
+              <label for="country">Country:</label>
+              <input type="text" class="form-control">
+              <label for="address">Address:</label>
+              <input type="text" class="form-control">
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div id="card-purchase-button">
-    <%= simple_form_for([@item, @purchase]) do |f| %>
-    <%= f.submit "Confirm purchase", class: "card-purchase-button btn btn-primary"%>
-    <% end %>
-  </div>
 </div>
-
-

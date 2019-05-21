@@ -14,7 +14,7 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == user || record.user.admin?
+    record.user == user || user&.admin?
   end
 
   def update?

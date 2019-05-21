@@ -4,12 +4,19 @@
 <br>
 <br>
 <div class="container">
-  <div class="card mb-3 shadow-sm p-3 mx-auto mb-5 bg-white rounded" style="max-width: 800px;">
+  <div class="card shadow-sm p-3 mx-auto mb-4 bg-white rounded-sm" style="max-width: 1000px;">
     <div class="row no-gutters d-flex justify-content-center align-items-center flex-wrap">
       <div class="col-md-4">
-        <%= cl_image_tag @item.photo, class: "card-img-top rounded-lg border border-info", width: 396 %>
+        <%= cl_image_tag @item.photo, class: "card-img-top rounded-lg border border-info" %>
          <%  if @item.user != current_user %>
         <%= link_to "Buy this Item!", new_item_purchase_path(@item, @user), class: "btn btn-primary my-2 btn-block" %>
+        <% end %>
+        <%= link_to "Back to Shopping", items_path, class: "btn btn-info my-2 btn-block" %>
+        <% if policy(@item).edit? %>
+          <%= link_to "Edit", edit_item_path, class: "btn btn-info my-2 btn-block" %>
+        <% end %>
+        <% if policy(@item).destroy? %>
+          <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-warning my-2 btn-block" %>
         <% end %>
       </div>
       <div class="col-md-5 d-flex flex-column">
@@ -18,17 +25,6 @@
           <h4 class="card-text">Seller Description: <%= @item.description %></h4>
           <h4 class="group-item">Listed Price: £ <%= @item.price %></h4>
           <h5 class="card-text"><small class="text-muted"><%= link_to "Sold by #{@item.user.name} --> Check out #{@item.user.name}'s Reviews!", user_reviews_path(@item.user) %></small></h5>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="d-flex flex-column">
-          <% if policy(@item).edit? %>
-            <%= link_to "Edit", edit_item_path, class: "btn btn-info m-3" %>
-          <% end %>
-          <% if policy(@item).destroy? %>
-            <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-info m-3" %>
-          <% end %>
-          <%= link_to "Back to Shopping", items_path, class: "btn btn-info m-3" %>
         </div>
       </div>
     </div>
