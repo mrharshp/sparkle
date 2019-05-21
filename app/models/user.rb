@@ -10,4 +10,8 @@ class User < ApplicationRecord
   has_many :sender_chatrooms, foreign_key: "sender_chatrooms", class_name: "Chatroom"
   has_many :receiver_chatrooms, foreign_key: "receiver_chatrooms", class_name: "Chatroom"
   mount_uploader :photo, PhotoUploader
+
+  def admin?
+    admin
+  end
 end
