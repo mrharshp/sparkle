@@ -4,6 +4,9 @@
     <%= f.input :description %>
     <%= f.input :price %>
     <%= f.input :photo %>
+    <%= f.input :category %>
+    <%= f.input :male, as: :boolean, input_html: {checked: false} %>
+    <%= f.input :female, as: :boolean, input_html: {checked: false} %>
     <%= f.submit "Add Item", class: "btn btn-primary" %>
     <%= link_to "Back", items_path, class: "btn btn-primary" %>
   <% end %>
