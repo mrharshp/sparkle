@@ -1,6 +1,12 @@
 <br>
 <div class="container">
-  <h3>Hi <%= current_user.name %>, You have <%= @purchases.count %> items in your basket:  </h3>
+  <h3>Hi <%= current_user.name %>, You have <%= @purchases.count %>
+  <% if @purchases.count == 1 %>
+      purchase:
+    <% else %>
+      purchases:
+    <% end %>
+  items in your basket:  </h3>
 </div>
 <% @purchases.each do |purchase| %>
   <div class="container card-posts">
