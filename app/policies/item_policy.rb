@@ -6,7 +6,7 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def show?
-    true  # Anyone can view a restaurant
+    true # Anyone can view a restaurant
   end
 
   def create?
@@ -14,7 +14,7 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == user
+    record.user == user || user.admin?
   end
 
   def update?
@@ -24,6 +24,6 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    edit?
   end
 end

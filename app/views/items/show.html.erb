@@ -8,7 +8,9 @@
     <div class="row no-gutters d-flex justify-content-center align-items-center flex-wrap">
       <div class="col-md-4">
         <%= cl_image_tag @item.photo, class: "card-img-top rounded-lg border border-info", width: 396 %>
+         <%  if @item.user != current_user %>
         <%= link_to "Buy this Item!", new_item_purchase_path(@item, @user), class: "btn btn-primary my-2 btn-block" %>
+        <% end %>
       </div>
       <div class="col-md-5 d-flex flex-column">
         <div class="card-body">
