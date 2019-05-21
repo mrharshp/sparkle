@@ -1,6 +1,6 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatrooms = Chatroom.where(sender: current_user)
+    @chatrooms = Chatroom.where(sender: current_user).or(Chatroom.where(receiver: current_user))
   end
 
   def show
