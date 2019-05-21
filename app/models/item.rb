@@ -6,6 +6,6 @@ class Item < ApplicationRecord
   validates :price, numericality: { only_integer: true }, presence: true
   validates :photo, presence: true
   belongs_to :user
-  has_one :purchase
+  has_one :purchase, dependent: :destroy
   mount_uploader :photo, PhotoUploader
 end
