@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :reviews, only: [:new, :create, :index, :show, :destroy]
   end
+  resources :chatrooms, only: [:create, :index, :show] do
+    resources :messages, only: [:create]
+  end
   get 'my_profile', to: 'pages#profile', as: :my_profile
   get 'my_purchases', to: 'purchases#index', as: :my_purchases
   get 'my_posts', to: 'pages#posts', as: :my_posts

@@ -16,6 +16,16 @@
           <h4 class="card-text">Seller Description: <%= @item.description %></h4>
           <h4 class="group-item">Listed Price: £ <%= @item.price %></h4>
           <h5 class="card-text"><small class="text-muted"><%= link_to "Sold by #{@item.user.name} --> Check out #{@item.user.name}'s Reviews!", user_reviews_path(@item.user) %></small></h5>
+          <h5 class="card-text">
+            <small class="text-muted">
+              <% if @item.user != current_user %>
+                <%= simple_form_for(@chatroom) do |f| %>
+                  <%= hidden_field_tag :receiver_id, @item.user.id %>
+                  <%= f.submit "Chat with #{@item.user.name}", class: "btn btn-primary" %>
+                <% end %>
+              <% end %>
+            </small>
+          </h5>
         </div>
       </div>
       <div class="col-md-3">

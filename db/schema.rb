@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_17_124013) do
+ActiveRecord::Schema.define(version: 2019_05_21_131222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_chatrooms_on_receiver_id"
+    t.index ["sender_id"], name: "index_chatrooms_on_sender_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -26,6 +35,16 @@ ActiveRecord::Schema.define(version: 2019_05_17_124013) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "text"
+    t.bigint "user_id"
+    t.bigint "chatroom_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "purchases", force: :cascade do |t|
@@ -60,7 +79,11 @@ ActiveRecord::Schema.define(version: 2019_05_17_124013) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chatrooms", "users", column: "receiver_id"
+  add_foreign_key "chatrooms", "users", column: "sender_id"
   add_foreign_key "items", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "purchases", "items"
   add_foreign_key "purchases", "users"
   add_foreign_key "reviews", "users"
