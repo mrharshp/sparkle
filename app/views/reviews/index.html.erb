@@ -15,7 +15,7 @@
            <%= review.content %>
            <br>
            <% if review.rating? %>
-              <% review.ratings.times do %>
+              <% review.rating.times do %>
                 <i class="fas fa-star" style="color:#5B2A86;"></i>
               <% end %>
             <% else %>
