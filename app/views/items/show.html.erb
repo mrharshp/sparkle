@@ -25,8 +25,28 @@
           <h3 class="card-title" style="font-weight: bolder;"><%= @item.name %></h3>
           <h4 class="card-text">Seller Description: <%= @item.description %></h4>
           <h4 class="group-item">Listed Price: £ <%= @item.price %></h4>
-          <h5 class="card-text"><small class="text-muted"><%= link_to "Sold by #{@item.user.name}.
-          Check out #{@item.user.name}'s Reviews!", user_reviews_path(@item.user) %></small></h5>
+          <h5 class="card-text"><small class="text-muted"><%= link_to "Sold by #{@item.user.name} --> Check out #{@item.user.name}'s Reviews!", user_reviews_path(@item.user) %></small></h5>
+          <h5 class="card-text">
+            <small class="text-muted">
+              <% if @item.user != current_user %>
+                <%= simple_form_for(@chatroom) do |f| %>
+                  <%= hidden_field_tag :receiver_id, @item.user.id %>
+                  <%= f.submit "Chat with #{@item.user.name}", class: "btn btn-primary" %>
+                <% end %>
+              <% end %>
+            </small>
+          </h5>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="d-flex flex-column">
+          <% if policy(@item).edit? %>
+            <%= link_to "Edit", edit_item_path, class: "btn btn-info m-3" %>
+          <% end %>
+          <% if policy(@item).destroy? %>
+            <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-info m-3" %>
+          <% end %>
+          <%= link_to "Back to Shopping", items_path, class: "btn btn-info m-3" %>
         </div>
       </div>
     </div>

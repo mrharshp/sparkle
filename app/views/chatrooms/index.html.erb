@@ -1,0 +1,10 @@
+<br>
+<div class="container">
+  <h5>Hi <%= current_user.name %>, find below your open Chatrooms</h5>
+  <div class="container">
+    <% @chatrooms.each_with_index do |chatroom, index| %>
+    <h5><%= link_to "#{index + 1}. Chatroom between #{chatroom.sender.name} (#{chatroom.sender.email}) and #{chatroom.receiver.name} (#{chatroom.receiver.email})",
+     chatroom_path(chatroom) %></h5>
+    <% end %>
+  </div>
+</div>
