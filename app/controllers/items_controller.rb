@@ -34,14 +34,14 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.user == current_user
+    if @item.user == current_user || current_user.admin?
       @item.update(item_params)
       redirect_to item_path(@item)
     end
   end
 
   def destroy
-    if @item.user == current_user
+    if @item.user == current_user || current_user.admin?
       @item.destroy
       redirect_to items_path
     end
