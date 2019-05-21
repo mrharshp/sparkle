@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   def index
     @items = policy_scope(Item)
     if params[:search]
-      @items = Item.where("name LIKE '%#{params[:search]}%'").select { |item| item.purchase.nil? }
+      @items = Item.where("name ILIKE '%#{params[:search]}%' OR description ILIKE '%#{params[:search]}%' OR category ILIKE '%#{params[:search]}%' OR gender ILIKE '%#{params[:search]}%'").select { |item| item.purchase.nil? }
     else
       @items = policy_scope(Item).select { |item| item.purchase.nil? }
     end
@@ -34,14 +34,14 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.user == current_user
+    if @item.user == current_user || current_user.admin?
       @item.update(item_params)
       redirect_to item_path(@item)
     end
   end
 
   def destroy
-    if @item.user == current_user
+    if @item.user == current_user || current_user.admin?
       @item.destroy
       redirect_to items_path
     end

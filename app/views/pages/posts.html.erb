@@ -1,9 +1,14 @@
 <br>
 <div class="container">
   <h3>Hi <%= @user.name %>, see your posted items below!</h3>
-  <h6>You have posted <%= @user.items.count %> items</h6>
+  <h6>You have posted <%= @user.items.count %>
+    <% if @user.items.count == 1 %>
+      item:
+    <% else %>
+      items:
+    <% end %>
+  </h6>
 </div>
-
 <% @items.each do |item| %>
   <div class="container card-posts">
     <div class="card-posts-image" style="background-image: url('<%= cl_image_path item.photo %>')">
@@ -21,9 +26,10 @@
       <% end %>
     </div>
     <div class="d-flex flex-column">
-      <%= link_to "Edit", edit_item_path(item), class: "btn btn-info m-3" %>
-
-      <%= link_to "Delete", item_path(item), method: :delete, class: "btn btn-info m-3" %>
+      <% if item.purchase == nil %>
+        <%= link_to "Edit", edit_item_path(item), class: "btn btn-info m-3" %>
+        <%= link_to "Delete", item_path(item), method: :delete, class: "btn btn-info m-3" %>
+      <% end %>
     </div>
   </div>
 <% end %>

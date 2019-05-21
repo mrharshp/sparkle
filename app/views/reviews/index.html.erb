@@ -1,6 +1,6 @@
 <br>
 <div class="container">
-  <h3>Check out <%= @user.name %>'s Reviews!</h3>
+  <h3>Check out <strong><%= @user.name %>'s</strong> Reviews!<%= cl_image_tag @user.photo, height: 50, width: 50, crop: :fit, class: "avatar dropdown-toggle" %></h3>
   <div class="d-flex flex-wrap">
     <% @reviews.each do |review| %>
       <div class="card mr-3 my-3" style="width: 18rem;">
@@ -8,10 +8,16 @@
            <strong><%= review.title %></strong>
            <br>
            <%= review.content %>
+           <br>
+           <% review.rating.times do %>
+           <i class="fas fa-star" style="color:#5B2A86;"></i>
+           <% end %>
         </div>
       </div>
     <% end %>
   </div>
   <%= link_to 'Write a review!', new_user_review_path(@user), class:"btn btn-primary my-3" %>
 </div>
+
+
 
