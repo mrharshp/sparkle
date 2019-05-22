@@ -1,4 +1,4 @@
-<br>
+ <br>
 <div class="container">
   <h3>Hi <%= current_user.name %>, You have <%= @purchases.count %>
   <% if @purchases.count == 1 %>
@@ -20,3 +20,4 @@
 <% end %>
 </div>
 <%= link_to "Check out", my_purchases_path, class: "btn btn-info m-3" %>
+

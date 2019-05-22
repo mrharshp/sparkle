@@ -9,7 +9,6 @@
       <div class="col-md-4">
         <%= cl_image_tag @item.photo, class: "card-img-top rounded-lg border border-info" %>
          <%  if @item.user != current_user %>
-        <%= link_to "Add to Basket", user_my_basket_path(@item, @curren_user), class: "btn btn-primary my-2 btn-block" %>
         <%= link_to "Buy this Item!", new_item_purchase_path(@item, @user), class: "btn btn-primary my-2 btn-block" %>
         <% end %>
         <%= link_to "Back to Shopping", items_path, class: "btn btn-info my-2 btn-block" %>
