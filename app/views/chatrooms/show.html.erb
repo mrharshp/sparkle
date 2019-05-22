@@ -14,3 +14,8 @@
   </div>
   <%= render 'messages/new', chatroom: @chatroom, message: Message.new %>
 </div>
+<script>
+  setInterval(function() {
+    location.reload();
+  }, 20000);
+</script>
