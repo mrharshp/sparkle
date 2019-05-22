@@ -1,7 +1,7 @@
 <div class="form container">
   <%= simple_form_for(@item) do |f| %>
     <%= f.input :name %>
-    <%= f.input :description, as: :text %>
+    <%= f.input :description %>
     <%= f.input :price %>
     <%= f.input :photo %>
     <%= f.input :category, collection: ['Anklets', 'Earrings', 'Necklaces', 'Rings', 'Watches', 'Other'] %>
