@@ -28,17 +28,20 @@
   // margin-left: 30px;
   h1 {
     position: absolute;
-    top: 1rem;
+    top: 0rem;
     z-index: 100;
     text-align: center;
-    width: 100%;
-    margin-top: 50px;
+    width: 20%;
     font-weight: bolder;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(91, 42, 134, 0.5);
+    border-radius: 3px;
+    font-size: 16px;
+    padding: 10px;
     a {
       color: white;
       text-decoration: none;
       background-color: transparent;
+      font-size: 1rem;
     }
   }
 }

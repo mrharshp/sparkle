@@ -6,7 +6,7 @@ const carousel = () => {
     prevArrow: '<i class="fas fa-chevron-left"></i>',
     nextArrow: '<i class="fas fa-chevron-right"></i>',
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     responsive: [
