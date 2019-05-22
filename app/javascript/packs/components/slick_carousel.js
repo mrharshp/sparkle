@@ -8,7 +8,7 @@ const carousel = () => {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     responsive: [
     {
       breakpoint: 992,
