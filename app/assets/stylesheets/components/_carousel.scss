@@ -31,4 +31,11 @@
 
 .categories{
   font-size: 12px;
+  text-align: center;
+  display: flex;
+  h3 {
+    font-size: 1.5rem;
+    color: $purple;
+    font-weight: bolder;
+  }
 }
