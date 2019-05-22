@@ -17,3 +17,14 @@
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
 }
+
+.slick-slide {
+  margin: 0 20px;
+}
+
+.carousel-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+  object-position: center;
+}

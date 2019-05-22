@@ -19,8 +19,8 @@
 <div class="autoplay" style="display: flex;align-items: center;">
     <% @anklets.each do |item|  %>
       <div class="card-product-carousel">
-        <%= cl_image_tag(item.photo, width: 350, height: 180, crop: :pad) %>
-            <h1><%= link_to "£#{item.price}", item_path(item) %></h1>
+        <%= cl_image_tag item.photo, crop: :pad, class:'carousel-img' %>
+        <h1><%= link_to "£#{item.price}", item_path(item) %></h1>
       </div>
     <% end %>
 </div>
@@ -31,7 +31,7 @@
 <div class="autoplay" style="display: flex;align-items: center;">
     <% @earrings.each do |item|  %>
       <div class="card-product-carousel">
-        <%= cl_image_tag(item.photo, width: 350, height: 180, crop: :pad) %>
+        <%= cl_image_tag item.photo, crop: :pad, class:'carousel-img' %>
             <h1><%= link_to "£#{item.price}", item_path(item) %></h1>
       </div>
     <% end %>
@@ -43,7 +43,7 @@
 <div class="autoplay" style="display: flex;align-items: center;">
     <% @necklaces.each do |item|  %>
       <div class="card-product-carousel">
-        <%= cl_image_tag(item.photo, width: 350, height: 180, crop: :pad) %>
+        <%= cl_image_tag item.photo, crop: :pad, class:'carousel-img' %>
             <h1><%= link_to "£#{item.price}", item_path(item) %></h1>
       </div>
     <% end %>
@@ -56,7 +56,7 @@
 <div class="autoplay" style="display: flex;align-items: center;">
     <% @rings.each do |item|  %>
       <div class="card-product-carousel">
-        <%= cl_image_tag(item.photo, width: 350, height: 180, crop: :pad) %>
+        <%= cl_image_tag item.photo, crop: :pad, class:'carousel-img' %>
             <h1><%= link_to "£#{item.price}", item_path(item) %></h1>
       </div>
     <% end %>
@@ -68,7 +68,7 @@
 <div class="autoplay" style="display: flex;align-items: center;">
     <% @watches.each do |item|  %>
       <div class="card-product-carousel">
-        <%= cl_image_tag(item.photo, width: 350, height: 180, crop: :pad) %>
+        <%= cl_image_tag item.photo, crop: :pad, class:'carousel-img' %>
             <h1><%= link_to "£#{item.price}", item_path(item) %></h1>
       </div>
     <% end %>
@@ -80,7 +80,7 @@
 <div class="autoplay" style="display: flex;align-items: center;">
     <% @others.each do |item|  %>
       <div class="card-product-carousel">
-        <%= cl_image_tag(item.photo, width: 350, height: 180, crop: :pad) %>
+        <%= cl_image_tag item.photo, crop: :pad, class:'carousel-img' %>
             <h1><%= link_to "£#{item.price}", item_path(item) %></h1>
       </div>
     <% end %>
