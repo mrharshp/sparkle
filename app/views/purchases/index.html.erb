@@ -14,14 +14,14 @@
   <div class="container">
     <div class="card shadow-sm p-3 mx-auto mb-4 bg-white rounded-sm" style="max-width: 1000px;">
       <div class="row no-gutters d-flex justify-content-center align-items-center flex-wrap">
-        <div class="photo col-md-2">
+        <div class="photo col-md-3">
           <%= cl_image_tag purchase.item.photo, class: "card-img-top rounded-lg border border-info" %>
         </div>
         <div class="col-md-3 d-flex flex-column p-3">
           <h2><%= purchase.item.name %></h2>
           <h3>£ <%= purchase.item.price %></h3>
         </div>
-        <div class="col-md-7 d-flex flex-column p-3">
+        <div class="col-md-6 d-flex flex-column p-3">
           <p>Date of purchase: <%= purchase.item.created_at.strftime("%d/%m/%Y at %I:%M%p") %></p>
           <p>Your order is in progress.</p>
           <p><%= link_to "You bought this item from #{purchase.item.user.name} --> Check out #{purchase.item.user.name}'s Reviews!", user_reviews_path(purchase.item.user) %></p>

@@ -12,6 +12,7 @@ class PagesController < ApplicationController
   def posts
     @user = current_user
     @items = Item.where(user: @user)
+    @purchases = Purchase.where(user: @user)
   end
 
   def basket
