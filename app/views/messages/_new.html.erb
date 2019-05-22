@@ -1,6 +1,6 @@
 <br>
 <div>
-  <%= simple_form_for([chatroom, message]) do |f| %>
+  <%= simple_form_for([chatroom, message], id: "new_message", remote: true) do |f| %>
   <div class="form-inline d-flex">
     <%= f.input :text, input_html: { class: "border bg-info rounded-pill mx-2 px-5", style: "width: 900px; height: 40px" }, label: "Send a message:" %>
     <%= f.submit "Send", class: "btn btn-outline-primary rounded-pill d-flex text-center" %>

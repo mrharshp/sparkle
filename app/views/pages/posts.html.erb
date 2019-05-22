@@ -14,25 +14,25 @@
   <div class="container">
     <div class="card shadow-sm p-3 mx-auto mb-4 bg-white rounded-sm" style="max-width: 1000px;">
       <div class="row no-gutters d-flex justify-content-center align-items-center flex-wrap">
-        <div class="photo col-md-2">
-          <%= cl_image_tag item.photo, class: "card-img-top rounded-lg border border-info" %>
+        <div class="photo col-md-3">
+          <%= cl_image_tag item.photo, class: "card-img-top rounded-lg border border-info"%>
         </div>
-        <div class="button d-flex w-50">
+        <div class="button d-flex">
           <% if item.purchase == nil %>
-            <%= link_to "Edit", edit_item_path(item), class: "btn btn-info m-2 w-50" %>
-            <%= link_to "Delete", item_path(item), method: :delete, class: "btn btn-warning m-2 w-50" %>
+            <%= link_to "Edit", edit_item_path(item), class: "btn btn-info m-2", id: "btn" %>
+            <%= link_to "Delete", item_path(item), method: :delete, class: "btn btn-warning m-2", id: "btn" %>
           <% end %>
         </div>
         <div class="col-md-4 d-flex flex-column p-3">
           <h2><%= link_to item.name, item_path(item) %></h2>
           <h3>£ <%= item.price %></h3>
         </div>
-        <div class="col-md-6 d-flex flex-column p-3">
+        <div class="col-md-5 d-flex flex-column p-3">
           <p>Date of post: <strong><%= item.created_at.strftime("%d/%m/%Y at %I:%M%p") %></strong></p>
           <% if item.purchase == nil %>
             <p>Status: Available</p>
           <% else %>
-            <p>Status: Sold</p>
+            <p>Status: Sold to <strong><%= item.purchase.user.name%></strong></p>
           <% end %>
         </div>
       </div>

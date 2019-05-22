@@ -3,8 +3,20 @@
   <h5>Hi <%= current_user.name %>, find below your open Chatrooms</h5>
   <div class="container">
     <% @chatrooms.each_with_index do |chatroom, index| %>
-    <h5><%= link_to "#{index + 1}. Chatroom between #{chatroom.sender.name} (#{chatroom.sender.email}) and #{chatroom.receiver.name} (#{chatroom.receiver.email})",
-     chatroom_path(chatroom) %></h5>
+    <div class="d-flex align-items-center">
+    <h5><%= link_to "#{index + 1}. Chatroom between #{chatroom.sender.name}",chatroom_path(chatroom), class:"text-decoration-none" %></h5>
+    <% if chatroom.sender.photo.url %>
+      <%= cl_image_tag chatroom.sender.photo, class: "avatar dropdown-toggle", style: "margin-left: 10px; margin-right: 10px; margin-bottom: 10px;", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% else %>
+        <p class="avatar nopic" style="margin-left: 10px; margin-right: 10px; margin-bottom: 10px;" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" > <%= chatroom.sender.name.first %> </p>
+    <% end %>
+    <h5><%= link_to "and #{chatroom.receiver.name}",chatroom_path(chatroom), class:"text-decoration-none" %></h5>
+    <% if chatroom.receiver.photo.url %>
+      <%= cl_image_tag chatroom.receiver.photo, class: "avatar dropdown-toggle", style: "margin-left: 10px; margin-right: 10px; margin-bottom: 10px;", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% else %>
+        <p class="avatar nopic" style="margin-left: 10px; margin-right: 10px; margin-bottom: 10px;" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" > <%= chatroom.receiver.name.first %> </p>
+    <% end %>
+    </div>
     <% end %>
   </div>
 </div>

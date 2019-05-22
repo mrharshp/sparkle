@@ -1,0 +1,5 @@
+<% if @message.user == @message.chatroom.sender %>
+    <p id="sender" class="text-left text-white font-italic border px-2" style="border-radius: 20px; width: fit-content; background-color: #5B2A86"><%= message.user.name %>: <%= message.text %></p>
+  <% else %>
+    <p id="receiver" class="text-right text-primary font-weight-bold font-italic"><%= message.user.name %>: <%= message.text %></p>
+<% end %>

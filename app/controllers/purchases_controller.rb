@@ -20,7 +20,7 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new(user: current_user)
     @purchase.item = @item
     if @purchase.save
-      redirect_to user_my_basket_path(current_user)
+      redirect_to my_purchases_path(current_user)
     else
       render :new
     end
@@ -29,7 +29,7 @@ class PurchasesController < ApplicationController
   def destroy
     @purchase = Purchase.find(params[:id])
     @purchase.destroy
-    redirect_to user_my_basket_path(current_user)
+    redirect_to my_purchases_path(current_user)
   end
 
   private

@@ -3,14 +3,19 @@
 <div class="container">
   <h3>This chat has 2 participants, <%= @chatroom.sender.name %> and <%= @chatroom.receiver.name %></h3>
   <br>
-  <div class="border border-primary bg-light p-5", style="border-radius: 25px;">
+  <div id="messages-box" class="border border-primary bg-light p-5", style="border-radius: 25px;">
     <% @messages.each do |message| %>
       <% if message.user == @chatroom.sender %>
-        <p class="text-left text-white font-italic border px-2" style="border-radius: 20px; width: fit-content; background-color: #5B2A86"><%= message.user.name %>: <%= message.text %></p>
+        <p id="sender" class="text-left text-white font-italic border px-2" style="border-radius: 20px; width: fit-content; background-color: #5B2A86"><%= message.user.name %>: <%= message.text %></p>
       <% else %>
-        <p class="text-right text-primary font-weight-bold font-italic"><%= message.user.name %>: <%= message.text %></p>
+        <p id="receiver" class="text-right text-primary font-weight-bold font-italic"><%= message.user.name %>: <%= message.text %></p>
       <% end %>
     <% end %>
   </div>
   <%= render 'messages/new', chatroom: @chatroom, message: Message.new %>
 </div>
+<script>
+  setInterval(function() {
+    location.reload();
+  }, 15000);
+</script>
