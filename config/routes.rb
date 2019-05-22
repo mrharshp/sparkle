@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get 'my_basket', to: 'pages#basket', as: :my_basket
   end
   resources :chatrooms, only: [:create, :index, :show] do
-    resources :messages, only: [:create]
+    resources :messages, only: [:create, :update]
   end
   resources :purchases, only: [:destroy]
   get 'my_profile', to: 'pages#profile', as: :my_profile
