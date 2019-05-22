@@ -14,12 +14,12 @@
         <%= f.input :password%>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
-        <%= f.submit "Update My Profile", class: "btn btn-warning" %>
+        <%= f.submit "Update My Profile", class: "mb-3 btn btn-primary" %>
       <% end %>
       </div>
     </div>
-  <%= link_to "My Purchase History", my_purchases_path, class: "btn btn-success" %>
-  <%= link_to "My Postings", my_posts_path, class: "btn btn-success" %>
+  <%= link_to "My Purchase History", my_purchases_path, class: "btn btn-info" %>
+  <%= link_to "My Postings", my_posts_path, class: "btn btn-info" %>
   <br>
 <!--   //<#%= link_to "My Chat History" %> -->
   </div>
