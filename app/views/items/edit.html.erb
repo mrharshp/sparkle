@@ -5,6 +5,8 @@
     <%= f.input :price %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :category, collection: ['Anklets', 'Earrings', 'Necklaces', 'Rings', 'Watches', 'Other'] %>
+    <%= f.input :gender, collection: ['Female', 'Male', 'Unisex'] %>
     <%= f.submit "Edit Item", class: "btn btn-primary" %>
     <%= link_to "Back", items_path, class: "btn btn-primary" %>
   <% end %>

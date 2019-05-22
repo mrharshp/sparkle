@@ -12,25 +12,27 @@
         <%= link_to "Buy this Item!", new_item_purchase_path(@item, @user), class: "btn btn-primary my-2 btn-block" %>
         <% end %>
         <%= link_to "Back to Shopping", items_path, class: "btn btn-info my-2 btn-block" %>
-        <% if policy(@item).edit? %>
-          <%= link_to "Edit", edit_item_path, class: "btn btn-info my-2 btn-block" %>
-        <% end %>
-        <% if policy(@item).destroy? %>
-          <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-warning my-2 btn-block" %>
-        <% end %>
+        <div class="d-flex">
+          <% if policy(@item).edit? %>
+            <%= link_to "Edit", edit_item_path, class: "btn btn-info my-2 w-50" %>
+          <% end %>
+          <% if policy(@item).destroy? %>
+            <%= link_to "Delete", item_path(@item), method: :delete, class: "btn btn-warning my-2 w-50" %>
+          <% end %>
+        </div>
       </div>
       <div class="col-md-5 d-flex flex-column">
         <div class="card-body">
-          <h3 class="card-title" style="font-weight: bolder;"><%= @item.name %></h3>
-          <h4 class="card-text">Seller Description: <%= @item.description %></h4>
-          <h4 class="group-item">Listed Price: £ <%= @item.price %></h4>
+          <h3 class="card-title"><strong><%= @item.name %></strong></h3>
+          <h4 class="card-text"><strong>Seller Description: </strong><%= @item.description %></h4>
+          <h4 class="group-item"><strong>Listed Price: </strong> £ <%= @item.price %></h4>
           <h5 class="card-text"><small class="text-muted"><%= link_to "Sold by #{@item.user.name} --> Check out #{@item.user.name}'s Reviews!", user_reviews_path(@item.user) %></small></h5>
           <h5 class="card-text">
             <small class="text-muted">
               <% if @item.user != current_user %>
                 <%= simple_form_for(@chatroom) do |f| %>
                   <%= hidden_field_tag :receiver_id, @item.user.id %>
-                  <%= f.submit "Chat with #{@item.user.name}", class: "btn btn-primary" %>
+                  <%= f.submit "Chat with #{@item.user.name}", class: "btn btn-primary"%>
                 <% end %>
               <% end %>
             </small>
