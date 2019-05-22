@@ -32,7 +32,7 @@
           <% if item.purchase == nil %>
             <p>Status: Available</p>
           <% else %>
-            <p>Status: Sold</p>
+            <p>Status: Sold to <strong><%= item.purchase.user.name%></strong></p>
           <% end %>
         </div>
       </div>
