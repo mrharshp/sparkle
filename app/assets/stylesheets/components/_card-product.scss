@@ -34,8 +34,17 @@
     width: 100%;
     margin-top: 50px;
     font-weight: bolder;
-    background-color: rgba(0, 50, 255, 0.05);
+    background-color: rgba(0, 0, 0, 0.3);
+    a {
+      color: white;
+      text-decoration: none;
+      background-color: transparent;
+    }
   }
+}
+
+.text{
+  color: white;
 }
 
 .card-product img {

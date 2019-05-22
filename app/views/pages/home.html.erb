@@ -15,12 +15,13 @@
 </div>
 <br>
 
+<div class="categories"></div>
 <h3>Anklets</h3>
 <div class="autoplay" style="display: flex;align-items: center;">
     <% @anklets.each do |item|  %>
       <div class="card-product-carousel">
         <%= cl_image_tag item.photo, crop: :pad, class:'carousel-img' %>
-        <h1><%= link_to "£#{item.price}", item_path(item) %></h1>
+        <h1><%= link_to "£#{item.price}", item_path(item), class: "text"%></h1>
       </div>
     <% end %>
 </div>
