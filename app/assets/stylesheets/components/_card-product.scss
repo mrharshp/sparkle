@@ -15,6 +15,29 @@
   border-radius: 5px;
 }
 
+.card-product-carousel {
+  position: relative;
+  overflow: hidden;
+  height: 180px;
+  width: 350px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  // display: flex;
+  border-radius: 5px;
+  // margin-left: 30px;
+  h1 {
+    position: absolute;
+    top: 1rem;
+    z-index: 100;
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    font-weight: bolder;
+    background-color: rgba(0, 50, 255, 0.05);
+  }
+}
+
 .card-product img {
   height: 100%;
   width: 50%;

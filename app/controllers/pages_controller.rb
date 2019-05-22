@@ -3,6 +3,12 @@ class PagesController < ApplicationController
 
   def home
     @items = Item.all.select { |item| item.purchase.nil? }
+    @anklets = @items.select {|item| item.category == "Anklets"}
+    @earrings = @items.select {|item| item.category == "Earrings"}
+    @necklaces = @items.select {|item| item.category == "Necklaces"}
+    @rings = @items.select {|item| item.category == "Rings"}
+    @watches = @items.select {|item| item.category == "Watches"}
+    @others = @items.select {|item| item.category == "Other"}
   end
 
   def profile

@@ -14,7 +14,80 @@
   </div>
 </div>
 <br>
-<div class="container">
-  <%= render 'items/itemcard' %>
+
+<h3>Anklets</h3>
+<div class="autoplay" style="display: flex;align-items: center;">
+    <% @anklets.each do |item|  %>
+      <div class="card-product-carousel">
+        <%= cl_image_tag item.photo, crop: :pad, class:'carousel-img' %>
+        <h1><%= link_to "£#{item.price}", item_path(item) %></h1>
+      </div>
+    <% end %>
 </div>
+
 <br>
+
+<h3>Earrings</h3>
+<div class="autoplay" style="display: flex;align-items: center;">
+    <% @earrings.each do |item|  %>
+      <div class="card-product-carousel">
+        <%= cl_image_tag item.photo, crop: :pad, class:'carousel-img' %>
+            <h1><%= link_to "£#{item.price}", item_path(item) %></h1>
+      </div>
+    <% end %>
+</div>
+
+<br>
+
+<h3>Necklaces</h3>
+<div class="autoplay" style="display: flex;align-items: center;">
+    <% @necklaces.each do |item|  %>
+      <div class="card-product-carousel">
+        <%= cl_image_tag item.photo, crop: :pad, class:'carousel-img' %>
+            <h1><%= link_to "£#{item.price}", item_path(item) %></h1>
+      </div>
+    <% end %>
+    <#% raise %>
+</div>
+
+<br>
+
+<h3>Rings</h3>
+<div class="autoplay" style="display: flex;align-items: center;">
+    <% @rings.each do |item|  %>
+      <div class="card-product-carousel">
+        <%= cl_image_tag item.photo, crop: :pad, class:'carousel-img' %>
+            <h1><%= link_to "£#{item.price}", item_path(item) %></h1>
+      </div>
+    <% end %>
+</div>
+
+<br>
+
+<h3>Watches</h3>
+<div class="autoplay" style="display: flex;align-items: center;">
+    <% @watches.each do |item|  %>
+      <div class="card-product-carousel">
+        <%= cl_image_tag item.photo, crop: :pad, class:'carousel-img' %>
+            <h1><%= link_to "£#{item.price}", item_path(item) %></h1>
+      </div>
+    <% end %>
+</div>
+
+<br>
+
+<h3>Other</h3>
+<div class="autoplay" style="display: flex;align-items: center;">
+    <% @others.each do |item|  %>
+      <div class="card-product-carousel">
+        <%= cl_image_tag item.photo, crop: :pad, class:'carousel-img' %>
+            <h1><%= link_to "£#{item.price}", item_path(item) %></h1>
+      </div>
+    <% end %>
+</div>
+
+<br>
+
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag 'components/slick_carousel' %>
+<% end %>
