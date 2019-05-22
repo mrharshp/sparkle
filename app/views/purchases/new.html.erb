@@ -11,13 +11,13 @@
         <%= simple_form_for([@item, @purchase]) do |f| %>
           <%= f.submit "Confirm purchase", class: "btn btn-primary my-2 btn-block"%>
         <% end %>
-        <%= link_to "Back to Shopping", items_path, class: "btn btn-info my-2 btn-block" %>
+        <%= link_to "Back to Shopping", items_path, class: "btn btn-warning my-2 btn-block" %>
       </div>
       <div class="col-md-5 d-flex flex-column">
         <div class="card-body">
-          <h3 class="card-title" style="font-weight: bolder;">Purchase this <%= @item.name %>!</h3>
-          <h4 class="card-text">Seller Description: <%= @item.description %></h4>
-          <h4 class="group-item">Listed Price: £ <%= @item.price %></h4>
+          <h3 class="card-title"> <strong> Purchase this <%= @item.name %>!</strong></h3>
+          <h4 class="card-text"> <strong>Seller Description: </strong><%= @item.description %></h4>
+          <h4 class="group-item"><strong>Listed Price: </strong> £ <%= @item.price %></h4>
           <div class="">
             <form class="form-group">
               <label for="name">Name:</label>
